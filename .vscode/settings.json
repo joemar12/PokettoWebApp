@@ -1,0 +1,13 @@
+{
+  "editor.tabSize": 2,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+  "diffEditor.codeLens": true,
+  "diffEditor.diffAlgorithm": "advanced",
+  "editor.minimap.autohide": true,
+  "files.autoSave": "afterDelay",
+  "files.insertFinalNewline": true,
+  "css.customData": [".vscode/tailwindcss.json"],
+}
