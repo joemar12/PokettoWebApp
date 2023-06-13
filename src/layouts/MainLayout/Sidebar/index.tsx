@@ -34,6 +34,7 @@ const Siderbar = () => {
                 Icon={item.icon}
                 expanded={sidebarIsOpen}
                 active={isMenuActive || isAnySubItemActive}
+                link={item.link}
               >
                 {item.items && (
                   <ul>

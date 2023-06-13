@@ -59,7 +59,7 @@ const sidebarMenu: MenuItem[] = [
     index: 4,
     icon: Cog8ToothIcon,
     label: "Settings",
-    link: "/settings"
+    link: "/user/settings"
   }
 ];
 
