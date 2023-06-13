@@ -18,13 +18,7 @@ const sidebarMenu: MenuItem[] = [
     index: 1,
     icon: ChartPieIcon,
     label: "Dashboards",
-    items: [
-      {
-        index: 1,
-        label: "Simple",
-        link: "/dashboard/simple",
-      },
-    ],
+    link: "/dashboard/simple",
   },
   {
     index: 2,
