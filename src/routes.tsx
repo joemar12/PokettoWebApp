@@ -1,7 +1,5 @@
 import React, { Suspense, lazy } from "react";
 import { RouteObject, Navigate } from "react-router-dom";
-
-import BaseLayout from "./layouts/BaseLayout";
 import MainLayout from "./layouts/MainLayout";
 import SuspenseLoader from "./components/SuspenseLoader";
 
@@ -40,7 +38,7 @@ const InternalServerError = Loader(
 const routes: RouteObject[] = [
   {
     path: "*",
-    element: <BaseLayout />,
+    element: <MainLayout />,
     children: [
       {
         path: "",
