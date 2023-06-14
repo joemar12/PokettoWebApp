@@ -8,7 +8,7 @@ import Footer from "./Footer";
 const MainLayout = () => {
   return (
     <>
-      <div className="flex overflow-x-hidden h-screen">
+      <div className="flex h-screen">
         <Sidebar />
         <MainWrapper>
           <Header />

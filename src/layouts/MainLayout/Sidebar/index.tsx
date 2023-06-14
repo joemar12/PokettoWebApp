@@ -18,46 +18,48 @@ const Siderbar = () => {
     <aside
       className={`${
         sidebarIsOpen ? "w-64" : "w-16"
-      } p-2 flex flex-col transition-[width] duration-200 bg-black overflow-y-auto overflow-x-hidden`}
+      } p-2 flex flex-col transition-[width] duration-200 bg-black relative`}
     >
-      <div className="h-24"></div>
-      <ul>
-        {items.map((item) => {
-          const isMenuActive = getMenuActiveState(item);
-          const isAnySubItemActive = item.items
-            ? item.items.some((x) => getMenuActiveState(x))
-            : false;
-          return (
-            <li key={item.index}>
-              <SidebarMenuItem
-                label={item.label}
-                Icon={item.icon}
-                expanded={sidebarIsOpen}
-                active={isMenuActive || isAnySubItemActive}
-                link={item.link}
-              >
-                {item.items && (
-                  <ul>
-                    {item.items.map((subItem) => {
-                      const isSubMenuActive = getMenuActiveState(subItem);
-                      return (
-                        <li key={subItem.index}>
-                          <SidebarSubMenuItem
-                            label={subItem.label}
-                            link={subItem.link}
-                            expanded={sidebarIsOpen}
-                            active={isSubMenuActive}
-                          />
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </SidebarMenuItem>
-            </li>
-          );
-        })}
-      </ul>
+      <div className={`h-screen overflow-y-auto overflow-x-hidden`}>
+        <div className="h-24"></div>
+        <ul>
+          {items.map((item) => {
+            const isMenuActive = getMenuActiveState(item);
+            const isAnySubItemActive = item.items
+              ? item.items.some((x) => getMenuActiveState(x))
+              : false;
+            return (
+              <li className="static" key={item.index}>
+                <SidebarMenuItem
+                  label={item.label}
+                  Icon={item.icon}
+                  expanded={sidebarIsOpen}
+                  active={isMenuActive || isAnySubItemActive}
+                  link={item.link}
+                >
+                  {item.items && (
+                    <ul>
+                      {item.items.map((subItem) => {
+                        const isSubMenuActive = getMenuActiveState(subItem);
+                        return (
+                          <li className="static" key={subItem.index}>
+                            <SidebarSubMenuItem
+                              label={subItem.label}
+                              link={subItem.link}
+                              expanded={sidebarIsOpen}
+                              active={isSubMenuActive}
+                            />
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </SidebarMenuItem>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </aside>
   );
 };
