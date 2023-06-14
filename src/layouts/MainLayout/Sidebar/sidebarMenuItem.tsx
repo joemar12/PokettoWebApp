@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
-import { Disclosure, Transition } from "@headlessui/react";
+import { Disclosure, Transition, Popover } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 interface SidebarMenuItemProps {
@@ -21,7 +21,7 @@ const SidebarMenuItem = (props: SidebarMenuItemProps) => {
       {({ open }) => (
         <>
           <Disclosure.Button
-            className={`p-2 mt-4 w-full flex items-center rounded-md cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
+            className={`p-2 mt-4 w-full flex items-center rounded-sm cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
               !expanded && active ? "bg-mid-grey text-white" : ""
             }`}
           >
@@ -36,7 +36,7 @@ const SidebarMenuItem = (props: SidebarMenuItemProps) => {
             )}
             {expanded && (
               <>
-                <span className="text-[16px] ml-4 font-bold mr-auto">
+                <span className="p-1 text-[16px] ml-4 font-bold mr-auto">
                   {label}
                 </span>
                 {children && (
@@ -70,7 +70,7 @@ const SidebarMenuItem = (props: SidebarMenuItemProps) => {
 
   const renderItem = () => (
     <div
-      className={`p-2 mt-4 flex items-center rounded-md cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
+      className={`p-2 mt-4 flex items-center rounded-sm cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
         active ? "bg-mid-grey text-white" : ""
       }`}
       onClick={() => navigate(link)}
@@ -86,7 +86,9 @@ const SidebarMenuItem = (props: SidebarMenuItemProps) => {
       )}
       {expanded && (
         <>
-          <span className="text-[16px] ml-4 font-bold mr-auto">{label}</span>
+          <span className="p-1 text-[16px] ml-4 font-bold mr-auto">
+            {label}
+          </span>
         </>
       )}
     </div>
@@ -100,7 +102,7 @@ const SidebarSubMenuItem = (props: SidebarMenuItemProps) => {
   const navigate = useNavigate();
   return (
     <div
-      className={`p-1 ml-4 flex items-center rounded-md cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
+      className={`p-1 pl-4 mt-1 flex items-center rounded-sm cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
         active ? "bg-mid-grey text-white" : ""
       }`}
       onClick={() => navigate(link)}
@@ -116,7 +118,7 @@ const SidebarSubMenuItem = (props: SidebarMenuItemProps) => {
       )}
       {expanded && (
         <>
-          <span className="text-[16px] ml-4 mr-auto">{label}</span>
+          <span className="p-1 text-[16px] ml-4 mr-auto">{label}</span>
         </>
       )}
     </div>

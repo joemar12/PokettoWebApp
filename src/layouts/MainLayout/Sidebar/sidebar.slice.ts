@@ -1,13 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../../store";
+import { loadState } from "../../../utils/localStorage";
 
 interface SidebarState {
   isOpen: boolean;
 }
 
-const initialState = {
+const stateFromLocalStorage = loadState() as RootState
+
+let initialState = {
   isOpen: true,
 } as SidebarState;
+
+if(stateFromLocalStorage && stateFromLocalStorage.sidebar){
+  initialState = {
+    ...stateFromLocalStorage.sidebar
+  }
+}
 
 export const sidebarSlice = createSlice({
   name: "sidebar",
