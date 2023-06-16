@@ -6,6 +6,8 @@
   "scripts": {
     "start": "webpack serve --env ENVIRONMENT=development --config webpack.config.dev.js",
     "build": "webpack --env ENVIRONMENT=production --config webpack.config.prod.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "jest"
   },
   "author": "Joe-Mar Gonzales",
@@ -54,6 +56,7 @@
     "@reduxjs/toolkit": "^1.9.3",
     "@types/nprogress": "^0.2.0",
     "clsx": "^1.2.1",
+    "gh-pages": "^5.0.0",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
