@@ -7,7 +7,7 @@
     "start": "webpack serve --env ENVIRONMENT=development --config webpack.config.dev.js",
     "build": "webpack --env ENVIRONMENT=production --config webpack.config.prod.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "test": "jest"
   },
   "author": "Joe-Mar Gonzales",
