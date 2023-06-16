@@ -78,7 +78,7 @@ const SidebarMenuItem = (props: SidebarMenuItemProps) => {
                 )}
               </Popover.Button>
               <Transition
-                className="absolute left-10 z-50"
+                className="absolute left-16 z-50 min-w-[160px] rounded-md bg-gray-800"
                 enter="transition duration-100 ease-out"
                 enterFrom="transform scale-95 opacity-0"
                 enterTo="transform scale-100 opacity-100"
@@ -86,10 +86,7 @@ const SidebarMenuItem = (props: SidebarMenuItemProps) => {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
-                <Popover.Panel
-                  className="p-2 rounded-md bg-black"
-                  onClick={() => close()}
-                >
+                <Popover.Panel className="p-2" onClick={() => close()}>
                   {children}
                 </Popover.Panel>
               </Transition>
@@ -134,7 +131,7 @@ const SidebarSubMenuItem = (props: SidebarMenuItemProps) => {
   const navigate = useNavigate();
   return (
     <div
-      className={`p-1 pl-4 mt-1 flex items-center rounded-sm cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
+      className={`p-1 pl-4 my-1 flex items-center rounded-sm cursor-pointer text-light-font hover:bg-mid-grey hover:text-white ${
         active ? "bg-mid-grey text-white" : ""
       } ${expanded && active ? "border-light-blue border-l-4" : ""}`}
       onClick={() => navigate(link)}
