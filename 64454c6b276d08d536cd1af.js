@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpoketto_offline_client=self.webpackChunkpoketto_offline_client||[]).push([[644],{644:(e,t,n)=>{n.r(t),n.d(t,{default:()=>a});var l=n(294);const a=()=>l.createElement(l.Fragment,null,l.createElement("h1",{className:"text-lg"},"Maintenance"))}}]);

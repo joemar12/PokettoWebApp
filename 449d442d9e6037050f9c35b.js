@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpoketto_offline_client=self.webpackChunkpoketto_offline_client||[]).push([[449],{449:(e,t,n)=>{n.r(t),n.d(t,{default:()=>c});var a=n(655),l=n(294);const c=()=>l.createElement(l.Fragment,null,l.createElement("h1",{className:"text-2xl"},"Simple Dashboard"),l.createElement(a.rU,{to:"/management/accounts"},"Accounts"))}}]);
