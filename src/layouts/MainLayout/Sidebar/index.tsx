@@ -1,30 +1,65 @@
+import { matchPath, useLocation } from "react-router-dom";
 import { useAppSelector } from "../../../hooks";
 import { selectSidebarIsOpen } from "./sidebar.slice";
-
-interface SidebarItemProps {
-  label: string;
-}
-const SidebarItem = ({ label }: SidebarItemProps) => {
-  return (
-    <div className="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-      <i className="bi bi-house-door-fill"></i>
-      <span className="text-[15px] ml-4 text-gray-200 font-bold">{label}</span>
-    </div>
-  );
-};
+import { SidebarMenuItem, SidebarSubMenuItem } from "./sidebarMenuItem";
+import items, { MenuItem } from "./items";
 
 const Siderbar = () => {
   const sidebarIsOpen = useAppSelector((state) => selectSidebarIsOpen(state));
+  const location = useLocation();
+
+  const getMenuActiveState = (item: MenuItem) => {
+    return item.link
+      ? !!matchPath({ path: item.link, end: true }, location.pathname)
+      : false;
+  };
+
   return (
     <aside
       className={`${
-        sidebarIsOpen ? "w-64" : "w-0"
-      } flex-shrink-0 p-1 z-50 flex flex-col shadow-lg shadow-slate-900 transition-all duration-300 bg-slate-900 overflow-y-auto`}
+        sidebarIsOpen ? "w-64" : "w-16"
+      } p-2 flex flex-col transition-[width] duration-200 bg-black relative`}
     >
-      <div className="h-24"></div>
-      <SidebarItem label="Dashboards" />
-      <SidebarItem label="Operation" />
-      <SidebarItem label="Management" />
+      <div className={`h-screen overflow-y-auto overflow-x-hidden`}>
+        <div className="h-24"></div>
+        <ul>
+          {items.map((item) => {
+            const isMenuActive = getMenuActiveState(item);
+            const isAnySubItemActive = item.items
+              ? item.items.some((x) => getMenuActiveState(x))
+              : false;
+            return (
+              <li className="static" key={item.index}>
+                <SidebarMenuItem
+                  label={item.label}
+                  Icon={item.icon}
+                  expanded={sidebarIsOpen}
+                  active={isMenuActive || isAnySubItemActive}
+                  link={item.link}
+                >
+                  {item.items && (
+                    <ul>
+                      {item.items.map((subItem) => {
+                        const isSubMenuActive = getMenuActiveState(subItem);
+                        return (
+                          <li className="static" key={subItem.index}>
+                            <SidebarSubMenuItem
+                              label={subItem.label}
+                              link={subItem.link}
+                              expanded={sidebarIsOpen}
+                              active={isSubMenuActive}
+                            />
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  )}
+                </SidebarMenuItem>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </aside>
   );
 };

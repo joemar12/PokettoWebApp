@@ -6,6 +6,8 @@
   "scripts": {
     "start": "webpack serve --env ENVIRONMENT=development --config webpack.config.dev.js",
     "build": "webpack --env ENVIRONMENT=production --config webpack.config.prod.js",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "jest"
   },
   "author": "Joe-Mar Gonzales",
@@ -50,12 +52,15 @@
   "dependencies": {
     "@headlessui/react": "^1.7.13",
     "@heroicons/react": "^2.0.16",
+    "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^1.9.3",
     "@types/nprogress": "^0.2.0",
     "clsx": "^1.2.1",
+    "gh-pages": "^5.0.0",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-popper": "^2.3.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0"
   }

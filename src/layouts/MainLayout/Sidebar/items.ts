@@ -2,53 +2,59 @@ import {
   ChartPieIcon,
   SquaresPlusIcon,
   CreditCardIcon,
+  Cog8ToothIcon,
 } from "@heroicons/react/24/solid";
 
-export interface MenuItemCategory {
-  label: string;
-  items?: MenuItem[];
-}
-
 export interface MenuItem {
-  name: string;
+  index: number;
+  icon?: any;
+  label: string;
   link?: string;
-  icon?: (
-    props: React.ComponentProps<"svg"> & { title?: string; titleId?: string }
-  ) => JSX.Element;
   items?: MenuItem[];
 }
 
-const sidebarMenu: MenuItemCategory[] = [
+const sidebarMenu: MenuItem[] = [
   {
+    index: 1,
+    icon: ChartPieIcon,
     label: "Dashboards",
-    items: [
-      {
-        name: "Simple",
-        link: "/dashboard/simple",
-        icon: ChartPieIcon,
-      },
-    ],
+    link: "/dashboard/simple",
   },
   {
+    index: 2,
+    icon: SquaresPlusIcon,
     label: "Management",
     items: [
       {
-        name: "Accounts",
+        index: 1,
+        label: "Accounts",
         link: "/management/accounts",
-        icon: SquaresPlusIcon,
       },
     ],
   },
   {
-    label: "Operation",
+    index: 3,
+    icon: CreditCardIcon,
+    label: "Transactions",
     items: [
       {
-        name: "Transactions",
-        link: "/operation/transactions",
-        icon: CreditCardIcon,
+        index: 1,
+        label: "Transfers",
+        link: "/transactions/transfers",
+      },
+      {
+        index: 2,
+        label: "Payments",
+        link: "/transactions/payments",
       },
     ],
   },
+  {
+    index: 4,
+    icon: Cog8ToothIcon,
+    label: "Settings",
+    link: "/user/settings"
+  }
 ];
 
 export default sidebarMenu;

@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import { Account } from "./types";
+import { loadState } from "../../utils/localStorage";
 
 interface AccountsState {
   userAccounts: Account[];
@@ -9,12 +10,20 @@ interface AccountsState {
   error: string;
 }
 
-const initialState = {
+const stateFromLocalStorage = loadState() as RootState
+
+let initialState = {
   userAccounts: [],
   isLoading: false,
   isSuccess: false,
   error: "",
 } as AccountsState;
+
+if(stateFromLocalStorage && stateFromLocalStorage.accounts){
+  initialState = {
+    ...stateFromLocalStorage.accounts
+  }
+}
 
 export const accountsSlice = createSlice({
   name: "accounts",

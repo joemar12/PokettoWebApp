@@ -6,7 +6,7 @@ interface MainContainerProps {
 
 const MainContainer = ({ children }: MainContainerProps) => {
   return (
-    <div className="main-container h-full mb-auto p-4 overflow-y-auto bg-slate-100">
+    <div className="main-container h-full mb-auto p-4 overflow-y-auto bg-white">
       {children}
     </div>
   );
