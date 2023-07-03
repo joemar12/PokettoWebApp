@@ -2,12 +2,17 @@ import {
   ChartPieIcon,
   SquaresPlusIcon,
   CreditCardIcon,
-  Cog8ToothIcon,
+  Cog8ToothIcon
 } from "@heroicons/react/24/solid";
 
 export interface MenuItem {
   index: number;
-  icon?: any;
+  icon?: React.ForwardRefExoticComponent<
+    React.SVGProps<SVGSVGElement> & {
+      title?: string;
+      titleId?: string;
+    }
+  >;
   label: string;
   link?: string;
   items?: MenuItem[];
@@ -18,7 +23,7 @@ const sidebarMenu: MenuItem[] = [
     index: 1,
     icon: ChartPieIcon,
     label: "Dashboards",
-    link: "/dashboard/simple",
+    link: "/dashboard/simple"
   },
   {
     index: 2,
@@ -28,9 +33,9 @@ const sidebarMenu: MenuItem[] = [
       {
         index: 1,
         label: "Accounts",
-        link: "/management/accounts",
-      },
-    ],
+        link: "/management/accounts"
+      }
+    ]
   },
   {
     index: 3,
@@ -40,14 +45,14 @@ const sidebarMenu: MenuItem[] = [
       {
         index: 1,
         label: "Transfers",
-        link: "/transactions/transfers",
+        link: "/transactions/transfers"
       },
       {
         index: 2,
         label: "Payments",
-        link: "/transactions/payments",
-      },
-    ],
+        link: "/transactions/payments"
+      }
+    ]
   },
   {
     index: 4,

@@ -3,7 +3,7 @@ export enum AccountType {
   Liability,
   Equity,
   Revenue,
-  Expense,
+  Expense
 }
 
 type Account = {

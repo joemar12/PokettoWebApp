@@ -3,7 +3,7 @@ import { RouteObject, Navigate } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import SuspenseLoader from "./components/SuspenseLoader";
 
-function Loader<T>(Component: React.ComponentType<T>, requiresAuth = false) {
+function Loader<T>(Component: React.ComponentType<T>) {
   return (props: T) => (
     <Suspense fallback={<SuspenseLoader />}>
       <Component {...props} />
@@ -11,22 +11,12 @@ function Loader<T>(Component: React.ComponentType<T>, requiresAuth = false) {
   );
 }
 
-const Accounts = Loader(
-  lazy(() => import("./features/Accounts")),
-  true
-);
-const Transactions = Loader(
-  lazy(() => import("./features/Transactions")),
-  true
-);
+const Accounts = Loader(lazy(() => import("./features/Accounts")));
+const Transactions = Loader(lazy(() => import("./features/Transactions")));
 
-const SimpleDashboard = Loader(
-  lazy(() => import("./pages/Dashboards/Simple")),
-  true
-);
+const SimpleDashboard = Loader(lazy(() => import("./pages/Dashboards/Simple")));
 const DetailedDashboard = Loader(
-  lazy(() => import("./pages/Dashboards/Detailed")),
-  true
+  lazy(() => import("./pages/Dashboards/Detailed"))
 );
 
 const NotFound = Loader(lazy(() => import("./pages/Status/NotFound")));
@@ -42,38 +32,38 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "",
-        element: <Navigate to="dashboard/simple" replace />,
+        element: <Navigate to="dashboard/simple" replace />
       },
       {
         path: "home",
-        element: <Navigate to="/" replace />,
+        element: <Navigate to="/" replace />
       },
       {
         path: "status",
         children: [
           {
             path: "",
-            element: <Navigate to="404" replace />,
+            element: <Navigate to="404" replace />
           },
           {
             path: "404",
-            element: <NotFound />,
+            element: <NotFound />
           },
           {
             path: "maintenance",
-            element: <Maintenance />,
+            element: <Maintenance />
           },
           {
             path: "500",
-            element: <InternalServerError />,
-          },
-        ],
+            element: <InternalServerError />
+          }
+        ]
       },
       {
         path: "*",
-        element: <NotFound />,
-      },
-    ],
+        element: <NotFound />
+      }
+    ]
   },
   {
     path: "dashboard",
@@ -81,17 +71,17 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "",
-        element: <Navigate to="simple" replace />,
+        element: <Navigate to="simple" replace />
       },
       {
         path: "simple",
-        element: <SimpleDashboard />,
+        element: <SimpleDashboard />
       },
       {
         path: "detailed",
-        element: <DetailedDashboard />,
-      },
-    ],
+        element: <DetailedDashboard />
+      }
+    ]
   },
   {
     path: "management",
@@ -99,9 +89,9 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "accounts",
-        element: <Accounts />,
-      },
-    ],
+        element: <Accounts />
+      }
+    ]
   },
   {
     path: "operation",
@@ -109,10 +99,10 @@ const routes: RouteObject[] = [
     children: [
       {
         path: "transactions",
-        element: <Transactions />,
-      },
-    ],
-  },
+        element: <Transactions />
+      }
+    ]
+  }
 ];
 
 export default routes;

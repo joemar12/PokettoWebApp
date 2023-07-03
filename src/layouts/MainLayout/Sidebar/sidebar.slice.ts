@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import type { RootState } from "../../../store";
 import { loadState } from "../../../utils/localStorage";
 
@@ -6,16 +6,16 @@ interface SidebarState {
   isOpen: boolean;
 }
 
-const stateFromLocalStorage = loadState() as RootState
+const stateFromLocalStorage = loadState() as RootState;
 
 let initialState = {
-  isOpen: true,
+  isOpen: true
 } as SidebarState;
 
-if(stateFromLocalStorage && stateFromLocalStorage.sidebar){
+if (stateFromLocalStorage && stateFromLocalStorage.sidebar) {
   initialState = {
     ...stateFromLocalStorage.sidebar
-  }
+  };
 }
 
 export const sidebarSlice = createSlice({
@@ -31,9 +31,10 @@ export const sidebarSlice = createSlice({
     closeSideBar: (state) => {
       state.isOpen = false;
     }
-  },
+  }
 });
 
-export const { toggleSidebar, openSidebar, closeSideBar } = sidebarSlice.actions;
+export const { toggleSidebar, openSidebar, closeSideBar } =
+  sidebarSlice.actions;
 export const selectSidebarIsOpen = (state: RootState) => state.sidebar.isOpen;
 export default sidebarSlice.reducer;
