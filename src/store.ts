@@ -1,5 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { combineReducers } from "@reduxjs/toolkit";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
 import accountsReducer from "./features/Accounts/accounts.slice";
 import sidebarReducer from "./layouts/MainLayout/Sidebar/sidebar.slice";
