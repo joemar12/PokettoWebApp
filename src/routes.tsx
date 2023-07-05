@@ -3,13 +3,15 @@ import { RouteObject, Navigate } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 import SuspenseLoader from "./components/SuspenseLoader";
 
-function Loader<T>(Component: React.ComponentType<T>) {
-  return (props: T) => (
-    <Suspense fallback={<SuspenseLoader />}>
-      <Component {...props} />
-    </Suspense>
-  );
-}
+const Loader = <T,>(Component: React.ComponentType<T>) => {
+  return function load(props: T) {
+    return (
+      <Suspense fallback={<SuspenseLoader />}>
+        <Component {...props} />
+      </Suspense>
+    );
+  };
+};
 
 const Accounts = Loader(lazy(() => import("./features/Accounts")));
 const Transactions = Loader(lazy(() => import("./features/Transactions")));
