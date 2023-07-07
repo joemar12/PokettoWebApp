@@ -1,9 +1,10 @@
+/* eslint-disable no-unused-vars */
 export enum AccountType {
   Asset,
   Liability,
   Equity,
   Revenue,
-  Expense,
+  Expense
 }
 
 type Account = {

@@ -17,10 +17,10 @@ const Siderbar = () => {
   return (
     <aside
       className={`${
-        sidebarIsOpen ? "w-64" : "w-16"
-      } p-2 flex flex-col transition-[width] duration-200 bg-black relative`}
+        sidebarIsOpen ? "w-64 p-2" : "w-0 p-0 md:w-16 md:p-2"
+      } flex flex-col transition-[width] duration-200 bg-black md:relative absolute h-screen z-50`}
     >
-      <div className={`h-screen overflow-y-auto overflow-x-hidden`}>
+      <div className={`overflow-y-auto overflow-x-hidden`}>
         <div className="h-24"></div>
         <ul>
           {items.map((item) => {

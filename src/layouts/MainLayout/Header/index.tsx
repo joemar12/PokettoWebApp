@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-
 import { useAppDispatch } from "../../../hooks";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { toggleSidebar } from "../Sidebar/sidebar.slice";
@@ -18,7 +17,7 @@ const Header = () => {
   return (
     <>
       <div className="top-0 p-2 bg-grey flex flex-row">
-        <HeaderItem className="cursor-pointer">
+        <HeaderItem className="cursor-pointer md:ml-0 ml-auto">
           <Bars3Icon
             className="w-[24px] h-[24px] text-black"
             onClick={() => dispatch(toggleSidebar())}

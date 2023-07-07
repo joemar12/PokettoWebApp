@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../store";
 import { Account } from "./types";
 import { loadState } from "../../utils/localStorage";
@@ -10,26 +10,26 @@ interface AccountsState {
   error: string;
 }
 
-const stateFromLocalStorage = loadState() as RootState
+const stateFromLocalStorage = loadState() as RootState;
 
 let initialState = {
   userAccounts: [],
   isLoading: false,
   isSuccess: false,
-  error: "",
+  error: ""
 } as AccountsState;
 
-if(stateFromLocalStorage && stateFromLocalStorage.accounts){
+if (stateFromLocalStorage && stateFromLocalStorage.accounts) {
   initialState = {
     ...stateFromLocalStorage.accounts
-  }
+  };
 }
 
 export const accountsSlice = createSlice({
   name: "accounts",
   initialState,
   reducers: {
-    getUserAccountsFetch: (state, action: PayloadAction<string>) => {
+    getUserAccountsFetch: (state) => {
       state.isLoading = true;
     },
     getUserAccountsSuccess: (state, action: PayloadAction<Array<Account>>) => {
@@ -40,14 +40,14 @@ export const accountsSlice = createSlice({
     getUserAccountsFailure: (state, action: PayloadAction<string>) => {
       state.isSuccess = false;
       state.error = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const {
   getUserAccountsFetch,
   getUserAccountsSuccess,
-  getUserAccountsFailure,
+  getUserAccountsFailure
 } = accountsSlice.actions;
 export const selectUserAccounts = (state: RootState) =>
   state.accounts.userAccounts;

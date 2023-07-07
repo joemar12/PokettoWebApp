@@ -1,13 +1,41 @@
 {
+  "redhat.telemetry.enabled": false,
   "editor.tabSize": 2,
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
-  "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "modificationsIfAvailable",
   "diffEditor.codeLens": true,
   "diffEditor.diffAlgorithm": "advanced",
   "editor.minimap.autohide": true,
   "files.autoSave": "afterDelay",
   "files.insertFinalNewline": true,
-  "css.customData": [".vscode/tailwindcss.json"],
+  "window.zoomLevel": 1,
+  "workbench.iconTheme": "vscode-icons",
+  "tabout.disableByDefault": true,
+  "editor.linkedEditing": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": false, // required
+  "editor.formatOnType": false, // required
+  "editor.formatOnSave": false, // optional
+  "editor.formatOnSaveMode": "file", // required to format on save
+  // "vs-code-prettier-eslint.prettierLast": true, // set as "true" to run 'prettier' last not first
+  // "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.run": "onSave",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown"
+  ],
+  // "json.validate.enable": false,
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"],
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.bracketPairs": true,
+  "editor.smoothScrolling": true
 }

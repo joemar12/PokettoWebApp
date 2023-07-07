@@ -5,25 +5,26 @@ module.exports = (env) => {
   return merge(common(env), {
     mode: "development",
     output: {
-      publicPath: "/",
+      publicPath: "/"
     },
     devServer: {
       port: "3000",
       static: [
         {
           publicPath: "/",
-          directory: path.join(__dirname, "dist"),
+          directory: path.join(__dirname, "dist")
         },
         {
           publicPath: "/",
-          directory: "./src/assets",
-        },
+          directory: "./src/assets"
+        }
       ],
       compress: true,
       historyApiFallback: true,
       open: true,
       hot: true,
       liveReload: true,
-    },
+      open: "/PokettoWebApp"
+    }
   });
 };

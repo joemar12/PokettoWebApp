@@ -2,7 +2,7 @@ import { RootState } from "../store";
 
 export const loadState = () => {
   try {
-    const serialState = localStorage.getItem('appState');
+    const serialState = localStorage.getItem("appState");
     if (serialState === null) {
       return undefined;
     }
@@ -15,8 +15,8 @@ export const loadState = () => {
 export const saveState = (state: RootState) => {
   try {
     const serialState = JSON.stringify(state);
-    localStorage.setItem('appState', serialState);
-  } catch(err) {
-      console.log(err);
+    localStorage.setItem("appState", serialState);
+  } catch (err) {
+    console.log(err);
   }
 };
