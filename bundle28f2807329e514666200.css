@@ -508,9 +508,6 @@ video {
 .absolute {
   position: absolute;
 }
-.relative {
-  position: relative;
-}
 .left-16 {
   left: 4rem;
 }
@@ -533,6 +530,9 @@ video {
 }
 .ml-4 {
   margin-left: 1rem;
+}
+.ml-auto {
+  margin-left: auto;
 }
 .mr-auto {
   margin-right: auto;
@@ -564,8 +564,8 @@ video {
 .max-h-screen {
   max-height: 100vh;
 }
-.w-16 {
-  width: 4rem;
+.w-0 {
+  width: 0px;
 }
 .w-64 {
   width: 16rem;
@@ -671,6 +671,9 @@ video {
   background-color: rgba(255, 255, 255, 1);
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.p-0 {
+  padding: 0px;
+}
 .p-1 {
   padding: 0.25rem;
 }
@@ -771,5 +774,23 @@ video {
 .focus-visible\:outline-none:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+@media (min-width: 768px) {
+
+  .md\:relative {
+    position: relative;
+  }
+
+  .md\:ml-0 {
+    margin-left: 0px;
+  }
+
+  .md\:w-16 {
+    width: 4rem;
+  }
+
+  .md\:p-2 {
+    padding: 0.5rem;
+  }
 }
 
